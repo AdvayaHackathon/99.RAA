@@ -1,0 +1,166 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #4a90e2;
+    color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+#current-time {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    gap: 1.5rem;
+}
+
+section, aside {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+}
+
+#appointments {
+    flex: 2; /* Takes more space */
+    min-width: 300px;
+}
+
+#patient-details {
+    flex: 3; /* Takes most space */
+    min-width: 350px;
+}
+
+#notifications {
+    flex: 1; /* Takes less space */
+    min-width: 250px;
+    background-color: #fffbeb; /* Light yellow background for notifications */
+}
+
+h2 {
+    margin-top: 0;
+    color: #4a90e2;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#appointment-list li, #notification-list li {
+    padding: 0.8rem 0.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping if needed */
+}
+
+#appointment-list li:last-child, #notification-list li:last-child {
+    border-bottom: none;
+}
+
+#appointment-list .time {
+    font-weight: bold;
+    color: #555;
+    margin-right: 0.5em;
+}
+
+#appointment-list .patient-name {
+    flex-grow: 1; /* Allow name to take available space */
+    margin-right: 1em;
+}
+
+.details-btn {
+    padding: 0.3rem 0.8rem;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease;
+}
+
+.details-btn:hover {
+    background-color: #45a049;
+}
+
+
+#notification-list .noti-time {
+    font-weight: bold;
+    color: #888;
+    margin-right: 0.5em;
+    font-size: 0.85rem;
+}
+
+#details-content {
+    margin-top: 1rem;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    min-height: 100px; /* Ensure it has some height initially */
+}
+
+#details-content p:first-child {
+     color: #777; /* Style the placeholder text */
+     font-style: italic;
+}
+
+#details-content h3 {
+    margin-top: 0;
+    color: #555;
+}
+
+#details-content ul {
+    padding-left: 20px;
+    list-style: disc;
+}
+
+#details-content li {
+    margin-bottom: 0.5rem;
+}
+
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #e0e0e0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Basic Responsive adjustments */
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+    }
+    #appointments, #patient-details, #notifications {
+        flex: 1; /* Reset flex factor */
+        width: auto; /* Allow full width */
+    }
+}

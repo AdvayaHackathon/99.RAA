@@ -1,0 +1,138 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.poll-container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+h1 {
+    color: #0056b3; /* A calming blue */
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+form {
+    text-align: left;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #333;
+    padding: 0;
+    display: block; /* Ensure it takes full width */
+    width: 100%;
+}
+
+.options label,
+.options-yn label {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    background-color: #e9f1f7;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border: 1px solid transparent; /* Add border for focus state */
+}
+
+.options label:hover,
+.options-yn label:hover {
+    background-color: #d4e4f0;
+}
+
+.options input[type="radio"],
+.options-yn input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #0056b3; /* Style the radio button itself */
+}
+
+/* Style for focused labels */
+.options input[type="radio"]:focus + label,
+.options-yn input[type="radio"]:focus + label {
+     border: 1px solid #0056b3;
+     box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+}
+
+/* Hide the default radio button visually, but keep it accessible */
+/* Uncomment if you want to build custom radio appearance later
+.options input[type="radio"],
+.options-yn input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+} */
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width */
+    margin-top: 5px;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #28a745; /* Green for submit */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+button[type="submit"]:focus {
+    outline: 2px solid #28a745;
+    outline-offset: 2px;
+}
+
+
+.confirmation {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    text-align: center;
+    display: none; /* Hidden by default */
+}

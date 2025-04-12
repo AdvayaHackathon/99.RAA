@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Poll</title>
+    <link rel="stylesheet" href="style66.css">
+</head>
+<body>
+    <div class="poll-container">
+        <h1>Patient Satisfaction Poll</h1>
+        <p>Please let us know about your recent experience.</p>
+
+        <form id="satisfaction-poll">
+            <fieldset>
+                <legend>How satisfied were you with your recent visit?</legend>
+                <div class="options">
+                    <label>
+                        <input type="radio" name="satisfaction" value="5" required>
+                        Very Satisfied
+                    </label>
+                    <label>
+                        <input type="radio" name="satisfaction" value="4">
+                        Satisfied
+                    </label>
+                    <label>
+                        <input type="radio" name="satisfaction" value="3">
+                        Neutral
+                    </label>
+                    <label>
+                        <input type="radio" name="satisfaction" value="2">
+                        Dissatisfied
+                    </label>
+                    <label>
+                        <input type="radio" name="satisfaction" value="1">
+                        Very Dissatisfied
+                    </label>
+                </div>
+            </fieldset>
+
+             <fieldset>
+                <legend>Would you recommend our practice to others?</legend>
+                <div class="options-yn">
+                     <label>
+                        <input type="radio" name="recommend" value="yes" required>
+                        Yes
+                    </label>
+                     <label>
+                        <input type="radio" name="recommend" value="no">
+                        No
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                 <legend>Any additional comments? (Optional)</legend>
+                 <textarea id="comments" name="comments" rows="4"></textarea>
+            </fieldset>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <div id="confirmation-message" class="confirmation" aria-live="polite"></div>
+    </div>
+
+    <script src="script66.js"></script>
+</body>
+</html>

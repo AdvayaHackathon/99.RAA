@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DocConnect - Professional Network for Medical Specialists</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f3f2ef;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    a {
+      text-decoration: none;
+      color: #0a66c2;
+    }
+    
+    button {
+      cursor: pointer;
+    }
+    
+    /* Header */
+    header {
+      background-color: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: #0a66c2;
+    }
+    
+    .logo span {
+      color: #57a3f9;
+    }
+    
+    .logo img {
+      height: 32px;
+      margin-right: 10px;
+    }
+    
+    .search-bar {
+      flex-grow: 1;
+      margin: 0 20px;
+      position: relative;
+      max-width: 360px;
+    }
+    
+    .search-bar input {
+      width: 100%;
+      padding: 8px 15px 8px 35px;
+      border: none;
+      border-radius: 4px;
+      background-color: #eef3f8;
+      font-size: 14px;
+    }
+    
+    .search-bar::before {
+      content: "🔍";
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #666;
+    }
+    
+    .nav-links {
+      display: flex;
+    }
+    
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 10px;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .nav-icon {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    
+    .profile-nav {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .profile-img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    
+    /* Auth Forms */
+    .auth-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .auth-form {
+      background-color: white;
+      padding: 25px 30px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      width: 400px;
+      max-width: 90%;
+    }
+    
+    .auth-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .auth-header h2 {
+      font-size: 24px;
+      color: #0a66c2;
+      margin-bottom: 10px;
+    }
+    
+    .auth-tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .auth-tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    
+    .auth-tab.active {
+      color: #0a66c2;
+      border-bottom: 2px solid #0a66c2;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    .auth-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #0a66c2;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    
+    .auth-btn:hover {
+      background-color: #084b8e;
+    }
+    
+    .auth-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    
+    .auth-footer a {
+      font-weight: 600;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    
+    /* Main Content */
+    .main-container {
+      display: flex;
+      margin-top: 20px;
+      gap: 20px;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      width: 225px;
+      flex-shrink: 0;
+    }
+    
+    .profile-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .profile-background {
+      height: 60px;
+      background-color: #57a3f9;
+    }
+    
+    .profile-info {
+      padding: 0 15px 15px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .profile-picture {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 3px solid white;
+      margin-top: -35px;
+      margin-bottom: 10px;
+    }
+    
+    .profile-name {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    
+    .profile-title {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    
+    .profile-stats {
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+    }
+    
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+    
+    .stat-value {
+      font-weight: 600;
+      color: #0a66c2;
+    }
+    
+    .sidebar-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .sidebar-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .sidebar-list {
+      list-style: none;
+    }
+    
+    .sidebar-list li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    
+    .sidebar-list li a {
+      display: flex;
+      align-items: center;
+    }
+    
+    .sidebar-list li span {
+      margin-left: 8px;
+    }
+    
+    /* Feed */
+    .feed {
+      flex-grow: 1;
+    }
+    
+    .post-box {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .post-input {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .post-input img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    
+    .post-input input {
+      flex-grow: 1;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      font-size: 14px;
+    }
+    
+    .post-actions {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #ddd;
+      padding-top: 10px;
+    }
+    
+    .post-action {
+      display: flex;
+      align-items: center;
+      color: #666;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .post-action:hover {
+      background-color: #f3f2ef;
+    }
+    
+    .post-action-icon {
+      margin-right: 5px;
+      font-size: 20px;
+    }
+    
+    .feed-filter {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .feed-filter-line {
+      flex-grow: 1;
+      height: 1px;
+      background-color: #ddd;
+    }
+    
+    .feed-filter-text {
+      margin: 0 15px;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .post-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    
+    .post-header {
+      display: flex;
+      padding: 15px;
+    }
+    
+    .post-author-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    
+    .post-author-info {
+      flex-grow: 1;
+    }
+    
+    .post-author-name {
+      font-weight: 600;
+      font-size: 16px;
+    }
+    
+    .post-author-headline {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    
+    .post-time {
+      font-size: 12px;
+      color: #666;
+      display: flex;
+      align-items: center;
+    }
+    
+    .post-content {
+      padding: 0 15px 15px;
+    }
+    
+    .post-text {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    
+    .post-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    
+    .post-stats {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 15px;
+      font-size: 12px;
+      color: #666;
+      border-top: 1px solid #ddd;
+    }
+    
+    .post-actions-footer {
+      display: flex;
+      justify-content: space-around;
+      padding: 5px 0;
+      border-top: 1px solid #ddd;
+    }
+    
+    .post-action-btn {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      font-size: 14px;
+      color: #666;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .post-action-btn:hover {
+      background-color: #f3f2ef;
+    }
+    
+    .post-action-icon {
+      margin-right: 5px;
+      font-size: 18px;
+    }
+    
+    /* Right Sidebar */
+    .right-sidebar {
+      width: 300px;
+      flex-shrink: 0;
+    }
+    
+    .news-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .news-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .news-list {
+      list-style: none;
+    }
+    
+    .news-item {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .news-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .news-headline {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .news-meta {
+      font-size: 12px;
+      color: #666;
+      display: flex;
+      align-items: center;
+    }
+    
+    .news-dot {
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      background-color: #666;
+      border-radius: 50%;
+      margin: 0 5px;
+    }
+    
+    .show-more {
+      color: #666;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    
+    .show-more:hover {
+      color: #0a66c2;
+    }
+    
+    .doctor-card {
+      display: flex;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .doctor-card:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .doctor-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    
+    .doctor-info {
+      flex-grow: 1;
+    }
+    
+    .doctor-name {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    
+    .doctor-title {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .connect-btn {
+      border: 1px solid #0a66c2;
+      border-radius: 30px;
+      padding: 5px 15px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #0a66c2;
+      background-color: transparent;
+      margin-top: 5px;
+    }
+    
+    .connect-btn:hover {
+      background-color: rgba(10,102,194,0.1);
+    }
+    
+    /* Health Resource Center */
+    .resource-center {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    
+    .resource-header {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #0a66c2;
+    }
+    
+    .resource-categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .resource-category {
+      background-color: #f3f2ef;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .resource-category:hover {
+      background-color: #e6f1fc;
+    }
+    
+    .resource-category-icon {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+    
+    .resource-category-title {
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .resource-articles {
+      margin-top: 20px;
+    }
+    
+    .resource-article {
+      display: flex;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+    }
+    
+    .resource-article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .resource-article-img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    
+    .resource-article-content {
+      flex-grow: 1;
+    }
+    
+    .resource-article-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .resource-article-meta {
+      font-size: 12px;
+      color: #666;
+      display: flex;
+      align-items: center;
+    }
+    
+    .resource-article-author {
+      font-weight: 500;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .main-container {
+        flex-direction: column;
+      }
+      
+      .sidebar, .right-sidebar {
+        width: 100%;
+      }
+      
+      .feed {
+        order: -1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 0 10px;
+      }
+      
+      .search-bar {
+        display: none;
+      }
+      
+      .nav-text {
+        display: none;
+      }
+      
+      .resource-categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">
+        <span>Med</span>Link
+      </div>
+      
+      <div class="search-bar">
+        <input id="searchInput" type="text" placeholder="Search for doctors, specialties, articles...">
+      </div>
+      
+      
+      <div class="nav-links">
+        <a href="dashboard.html" class="nav-item">
+          <div class="nav-icon">🏠</div>
+          <div class="nav-text">Home</div>
+        </a>
+        <a href="network.html" class="nav-item">
+          <div class="nav-icon">👥</div>
+          <div class="nav-text">Chat</div>
+        </a>
+        <a href="health.html" class="nav-item">
+          <div class="nav-icon">✅ </div>
+          <div class="nav-text">Verification</div>
+        </a>
+        <a href="notifications.html" class="nav-item">
+          <div class="nav-icon">🔔</div>
+          <div class="nav-text">Notification</div>
+        </a>
+     
+      </div>
+    </div>
+    
+  </header>
+  <section id="content-area" style="padding: 20px;"></section>
+
+ 
+
+
+  <!-- Auth Modal -->
+  <div class="auth-container" id="authModal" style="display: none;">
+    <div class="auth-form">
+      <button class="close-btn" id="closeAuth">✕</button>
+      
+      <div class="auth-header">
+        <h2>MedLink</h2>
+        <p>Network for Medical Professionals</p>
+      </div>
+      
+      <div class="auth-tabs">
+        <div class="auth-tab active" id="loginTab">Login</div>
+        <div class="auth-tab" id="signupTab">Sign Up</div>
+        <div class="auth-tab" id="patientTab">Patient Access</div>
+      </div>
+      
+      <!-- Login Form -->
+      <div id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email or Phone</label>
+          <input type="text" id="loginEmail" placeholder="Enter your email or phone">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter your password">
+        </div>
+        <button class="auth-btn">Sign In</button>
+        <div class="auth-footer">
+          <p>New to DocConnect? <a href="#" id="showSignup">Join now</a></p>
+        </div>
+      </div>
+      
+      <!-- Sign Up Form -->
+      <div id="signupForm" style="display: none;">
+        <div class="form-group">
+          <label for="signupEmail">Email</label>
+          <input type="email" id="signupEmail" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="signupName">Full Name</label>
+          <input type="text" id="signupName" placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label for="signupType">Account Type</label>
+          <select id="signupType">
+            <option value="doctor">Doctor/Medical Professional</option>
+            <option value="institution">Healthcare Institution</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="signupPassword">Password</label>
+          <input type="password" id="signupPassword" placeholder="Create a password">
+        </div>
+        <button class="auth-btn">Create Account</button>
+        <div class="auth-footer">
+          <p>Already have an account? <a href="#" id="showLogin">Sign in</a></p>
+        </div>
+      </div>
+      
+      <!-- Patient Access Form -->
+      <div id="patientForm" style="display: none;">
+        <div class="form-group">
+          <label for="patientEmail">Email</label>
+          <input type="email" id="patientEmail" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="patientName">Full Name</label>
+          <input type="text" id="patientName" placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label for="patientPassword">Password</label>
+          <input type="password" id="patientPassword" placeholder="Create a password">
+        </div>
+        <button class="auth-btn">Sign Up as Patient</button>
+        <div class="auth-footer">
+          <p>Already have an account? <a href="#" id="showPatientLogin">Sign in</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="container main-container">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="profile-card">
+        <div class="profile-background"></div>
+        <div class="profile-info">
+          <a href="profile.html">
+            <img src="p.webp" alt="Profile Picture" class="profile-picture">
+          </a>
+          
+          <div class="profile-name">Dr. Jane Doe, M.D.</div>
+          <div class="profile-title">Cardiologist at City Medical Center</div>
+          
+          <div class="profile-stats">
+            <div class="stat-item">
+              <div class="stat-label">Profile views</div>
+              <div class="stat-value">245</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Article views</div>
+              <div class="stat-value">1,897</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label">Connections</div>
+              <div class="stat-value">583</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="sidebar-card">
+        <div class="sidebar-title">Medical Groups</div>
+        <ul class="sidebar-list">
+          <li>
+            <a href="https://en.wikipedia.org/wiki/Medical_college_in_India" target="_blank">
+              🩺 <span>Indian College of Medicine</span>
+            </a>
+          </li>
+          
+          <li><a href="#">👨‍⚕ <span>Heart Specialists Network</span></a></li>
+          <li><a href="#">📊 <span>Preventive Medicine Forum</span></a></li>
+          <li><a href="#">🔬 <span>Medical Research Collaborative</span></a></li>
+          <li><a href="#">📚 <span>Health Educators Community</span></a></li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-card">
+        <div class="sidebar-title">Followed Hashtags</div>
+        <ul class="sidebar-list">
+          <li>
+            <a href="https://www.medicalnewstoday.com/categories/medical-innovation" target="_blank">
+              #MedicalInnovation
+            </a>
+          </li>
+          
+          <li><a href="#">#HeartHealth</a></li>
+          <li><a href="#">#HealthcarePolicy</a></li>
+          <li><a href="#">#PrecisionMedicine</a></li>
+          <li><a href="#">#PatientCare</a></li>
+        </ul>
+      </div>
+    </aside>
+    
+    <!-- Main Feed -->
+    <main class="feed">
+      <!-- Post Creation Box -->
+      <div class="post-box">
+        <div class="post-input">
+          <a href="your-link-here.html">
+            <img src="p2.jpg" alt="Your Profile">
+          </a>
+          
+          <input id="postInput" type="text" placeholder="Share medical insights, research, or knowledge...">
+        </div>
+        
+        <div class="post-actions">
+          <div class="post-action">
+            <span class="post-action-icon">📷</span>
+            <a href="image-upload.html">Image</a>
+          </div>
+          <div class="post-action">
+            <span class="post-action-icon">📄</span>
+            <a href="document-upload.html">Document</a>
+          </div>
+          <div class="post-action">
+            <span class="post-action-icon">📊</span>
+            <a href="create-poll.html">Poll</a>
+          </div>
+          <div class="post-action">
+            <span class="post-action-icon">📅</span>
+            <a href="create-event.html">Event</a>
+          </div>
+        </div>
+        
+      
+      <!-- Health Resource Center -->
+      <div class="resource-center">
+        <div class="resource-header">Health Knowledge Center</div>
+        <div class="resource-categories">
+          
+            <div class="resource-category">
+              <div class="resource-category-icon">❤</div>
+              <a href="cardiology.html" class="resource-category-title">Cardiology</a>
+            </div>
+            <div class="resource-category">
+              <div class="resource-category-icon">🧠</div>
+              <a href="neurology.html" class="resource-category-title">Neurology</a>
+            </div>
+            <div class="resource-category">
+              <div class="resource-category-icon">🦴</div>
+              <a href="orthopedics.html" class="resource-category-title">Orthopedics</a>
+            </div>
+            <div class="resource-category">
+              <div class="resource-category-icon">👶</div>
+              <a href="pediatrics.html" class="resource-category-title">Pediatrics</a>
+            </div>
+            <div class="resource-category">
+              <div class="resource-category-icon">⚕</div>
+              <a href="general.html" class="resource-category-title">General</a>
+            </div>
+            <div class="resource-category">
+              <div class="resource-category-icon">➕</div>
+              <a href="more.html" class="resource-category-title">More</a>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="resource-articles">
+          <div class="resource-article">
+            <a href="https://www.mayoclinic.org/tests-procedures/minimally-invasive-heart-surgery/about/pac-20384895" target="_blank" rel="noopener noreferrer">
+              <img src="cardiac.jpg" alt="Article Image" class="resource-article-img">
+            </a>
+            
+            <div class="resource-article-content">
+              <div class="resource-article-title">Latest Advances in Minimally Invasive Cardiac Procedures</div>
+              <div class="resource-article-meta">
+                <span class="resource-article-author">Dr. Michael Chen</span>
+                <span class="news-dot"></span>
+                <span>1,245 views</span>
+              </div>
+            </div>
+          </div>
+          <div class="resource-article">
+            <img src="dia.jpg" alt="Article Image" class="resource-article-img">
+            <div class="resource-article-content">
+              <div class="resource-article-title">Understanding the Link Between Diabetes and Heart Disease</div>
+              <div class="resource-article-meta">
+                <span class="resource-article-author">Dr. Sarah Johnson</span>
+                <span class="news-dot"></span>
+                <span>3,421 views</span>
+              </div>
+            </div>
+          </div>
+          <div class="resource-article">
+            <img src="anti.jpg" alt="Article Image" class="resource-article-img">
+            <div class="resource-article-content">
+              <div class="resource-article-title">New Research on Antibiotic Resistance: What Patients Should Know</div>
+       
+            </div>
+        </div> <!-- Close resource-article -->
+      </div> <!-- Close container or section -->
+
+    
+      
+    </div>
+    <script>
+      document.getElementById("searchInput").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Prevent form submission if in a form
+          const query = event.target.value.trim();
+          if (query) {
+            window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+          }
+        }
+      });
+    </script>
+    
+    <script>
+      document.getElementById("postInput").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          const content = event.target.value.trim();
+          if (content) {
+            window.location.href = `post-display.html?content=${encodeURIComponent(content)}`;
+          }
+        }
+      });
+    </script>
+    
+     <!-- Close header-container or main layout div if needed -->
+  </body>
+</html>

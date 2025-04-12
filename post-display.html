@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Post Display</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4faff; }
+    .post-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      max-width: 600px;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+    .post-content {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.5;
+    }
+    .rating {
+      font-size: 16px;
+      color: #ffa500;
+    }
+    .views {
+      font-size: 14px;
+      color: #666;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="post-box">
+    <h2>Dr. Jane Doe, M.D: Understanding Hypertension</h2>
+    <p class="post-content">Hypertension, or high blood pressure, is a common condition that can lead to serious health problems, such as heart disease and stroke. It is often called the "silent killer" because it may have no symptoms.</p>
+    <p class="rating">Rating: ★★★★☆ (4/5)</p>
+    <p class="views">Views: 321</p>
+  </div>
+
+  <div class="post-box">
+    <h2>Dr. Ankit: Diabetes Management Tips</h2>
+    <p class="post-content">Managing diabetes involves monitoring blood sugar levels, eating a healthy diet, and staying active. Consistent care can prevent complications and improve the quality of life.</p>
+    <p class="rating">Rating: ★★★★★ (5/5)</p>
+    <p class="views">Views: 245</p>
+  </div>
+
+  <div class="post-box">
+    <h2>Rithwik26: The Importance of Vaccines</h2>
+    <p class="post-content">Vaccines are essential for preventing various infectious diseases. They help the immune system recognize and fight pathogens, providing immunity without causing illness.</p>
+    <p class="rating">Rating: ★★★☆☆ (3/5)</p>
+    <p class="views">Views: 188</p>
+  </div>
+
+  <script>
+    // JavaScript for dynamic post content (e.g., via query params)
+    const query = new URLSearchParams(window.location.search).get("content");
+    if(query) {
+      const postBox = document.createElement('div');
+      postBox.classList.add('post-box');
+      postBox.innerHTML = `
+        <h2>Your Shared Post:</h2>
+        <p class="post-content">${query}</p>
+        <p class="rating">Rating: ☆☆☆☆☆ (0/5)</p>
+        <p class="views">Views: 0</p>
+      `;
+      document.body.appendChild(postBox);
+    }
+  </script>
+</body>
+</html>

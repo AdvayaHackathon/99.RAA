@@ -1,0 +1,103 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #d9534f; /* Bootstrap danger color */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #b94a48; /* Darker red */
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+.intro p, .learn-more p {
+    font-size: 1.1rem;
+}
+
+.heart-section {
+    text-align: center;
+}
+
+.heart-container {
+    margin: 1rem auto;
+    width: 150px; /* Size of the SVG container */
+    position: relative;
+}
+
+#heart-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer; /* Indicate interactivity */
+    transition: transform 0.2s ease-in-out; /* Smooth transition for potential hover effects */
+}
+
+#heart-path {
+    fill: #d9534f; /* Use header red */
+    stroke: #b94a48; /* Darker red border */
+    stroke-width: 2;
+    /* Animation will be applied via JS/CSS */
+}
+
+/* Beating animation class */
+.beating {
+    animation: beat 0.8s infinite ease-in-out alternate;
+}
+
+@keyframes beat {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+button {
+    background-color: #5cb85c; /* Bootstrap success color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4cae4c; /* Darker green */
+}
+
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #ddd;
+    color: #555;
+    font-size: 0.9rem;
+}

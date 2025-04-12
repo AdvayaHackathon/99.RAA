@@ -1,0 +1,136 @@
+/* General Body for Login Page */
+.login-body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('F2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* Container */
+  .login-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    width: 350px;
+    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
+    text-align: center;
+  }
+ /* Logo or Image at the Top (Adjusted Position) */
+.login-container img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover; /* Ensure the image covers the area */
+  object-position: top; /* Focus on the top of the image (head/face) */
+  border-radius: 50%;
+  margin-bottom: 10px;  /* Adjust distance from heading */
+  align-self: center; /* Center it horizontally */
+}
+
+  /* Title */
+  .login-container h2 {
+    margin-bottom: 10px;
+    color: #003366;
+  }
+  
+  /* Toggle Buttons */
+  .form-toggle {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .form-toggle button {
+    background-color: #e6f0fa;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+    color: #003366;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-toggle .active {
+    background-color: #0077cc;
+    color: white;
+  }
+  
+  /* Auth Forms */
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-form h2 {
+    margin-bottom: 20px;
+    color: #003366;
+  }
+  
+  /* Input Group */
+  .input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: #f0f8ff;
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: 1px solid #cce0f5;
+  }
+  
+  .input-group i {
+    margin-right: 10px;
+    color: #0077cc;
+  }
+  
+  .input-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  /* Buttons */
+  .form-btn {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .form-btn:hover {
+    background-color: #005fa3;
+  }
+  
+  /* Forgot Password Link */
+  .forgot-password {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .forgot-password a {
+    color: #0077cc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+  
+  .forgot-password a:hover {
+    color: #005fa3;
+  }
+  
+  /* Utility */
+  .hidden {
+    display: none;
+  }
+  

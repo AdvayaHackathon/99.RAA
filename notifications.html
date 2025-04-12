@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Dashboard</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <header>
+        <h1>Doctor's Dashboard</h1>
+        <p id="current-time"></p>
+    </header>
+
+    <main>
+        <section id="appointments">
+            <h2>Upcoming Appointments</h2>
+            <ul id="appointment-list">
+                <li>
+                    <span class="time">09:00 AM</span> - <span class="patient-name">John Doe</span>
+                    <button class="details-btn" data-patient-id="p001">View Details</button>
+                </li>
+                <li>
+                    <span class="time">09:30 AM</span> - <span class="patient-name">Jane Smith</span>
+                     <button class="details-btn" data-patient-id="p002">View Details</button>
+                </li>
+                <li>
+                    <span class="time">10:00 AM</span> - <span class="patient-name">Robert Johnson</span>
+                     <button class="details-btn" data-patient-id="p003">View Details</button>
+                </li>
+                <li>
+                    <span class="time">11:00 AM</span> - <span class="patient-name">Emily Davis</span>
+                     <button class="details-btn" data-patient-id="p004">View Details</button>
+                </li>
+            </ul>
+        </section>
+
+        <section id="patient-details">
+            <h2>Patient Details</h2>
+            <div id="details-content">
+                <p>Select an appointment or 'View Details' to see patient information.</p>
+                <!-- Patient details will be loaded here -->
+            </div>
+        </section>
+
+        <aside id="notifications">
+            <h2>Notifications</h2>
+            <ul id="notification-list">
+                <li><span class="noti-time">[8:45 AM]</span> Lab results for J. Smith are ready.</li>
+                <li><span class="noti-time">[Yesterday]</span> Pharmacy request for R. Johnson approved.</li>
+                <li><span class="noti-time">[2 days ago]</span> New patient E. Davis assigned.</li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Medical Center</p>
+    </footer>
+
+    <script src="script4.js"></script>
+</body>
+</html>

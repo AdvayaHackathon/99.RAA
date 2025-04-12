@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Verification Portal</title>
+    <link rel="stylesheet" href="styles22.css">
+</head>
+<body>
+    <header>
+        <h1>Doctor Verification Portal</h1>
+        <p>Submit your credentials for verification.</p>
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="text-content">
+                <h2>Verify Your Medical Credentials</h2>
+                <p>Welcome to the Doctor Verification Portal. Please follow the steps below to submit your information and credentials for verification by our team.</p>
+                <p>Ensure you have all necessary documents ready before starting the process.</p>
+            </div>
+        </section>
+
+        <section class="verification-process">
+            <h2>Verification Steps</h2>
+            <ol>
+                <li>Fill out the online application form.</li>
+                <li>Upload required documents (e.g., medical license, identification).</li>
+                <li>Submit your application for review.</li>
+                <li>Await confirmation from our verification team.</li>
+            </ol>
+        </section>
+
+        <section class="verification-form">
+            <h2>Submit Your Application</h2>
+            <form id="verificationForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="licenseNumber">Medical License Number:</label>
+                    <input type="text" id="licenseNumber" name="licenseNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="documents">Upload Documents:</label>
+                    <input type="file" id="documents" name="documents" multiple>
+                    <small>Please upload scans of your license and ID.</small>
+                </div>
+                <button type="submit">Submit for Verification</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Verification Portal. All rights reserved.</p>
+    </footer>
+
+    <script src="script22.js"></script>
+</body>
+</html>

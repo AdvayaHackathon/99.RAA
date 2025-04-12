@@ -1,0 +1,131 @@
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #eef; /* Light Lavender Blue */
+    color: #333;
+}
+
+header {
+    background-color: #5a7d9a; /* Slightly muted blue */
+    color: white;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-bottom: 5px solid #3e5870; /* Darker shade */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+}
+
+main {
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.intro {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+
+
+h2 {
+    color: #3e5870; /* Dark blue/grey */
+    border-bottom: 2px solid #a0b4c8; /* Lighter shade */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem; /* Add spacing between sections */
+}
+
+.verification-process ol {
+    list-style: decimal inside;
+    padding-left: 0; 
+    margin-left: 1rem;
+}
+
+.verification-process li {
+    background-color: #f8f9fa;
+    margin-bottom: 0.5rem;
+    padding: 0.8rem;
+    border-radius: 4px;
+    border-left: 5px solid #a0b4c8;
+}
+
+.verification-form {
+    margin-top: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    color: #495057;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.form-group input[type="file"] {
+    padding: 0.5rem; 
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+button[type="submit"] {
+    background-color: #5a7d9a;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #3e5870;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #e6e6e6;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+}
